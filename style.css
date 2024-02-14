@@ -185,11 +185,50 @@
 }
 .queen.black{
     background-image: url(wither/rainha_preta.png);
-    background-position: bottom;
+    background-position: center;
     background-size: 4.7vw;
     background-repeat: no-repeat;
 }
 
-@media(max-width: 600px){
-
+@media(max-width: 1000px){
+.xadrez{
+    width: 95%;
+    height: 80%;
+}
+.peao.white{
+    background-size: 8vw;
+}
+.peao.black{
+    background-size: 8vw;
+}
+.torre.white{
+    background-size: 8vw;
+}
+.torre.black{
+    background-size: 8vw;
+}
+.cavalo.white{
+    background-size: 9.5vw;
+}
+.cavalo.black{
+    background-size: 9.5vw;
+}
+.bispo.white{
+    background-size: 8vw;
+}
+.bispo.black{
+    background-size: 8vw;
+}
+.king.white{
+    background-size: 9.5vw;
+}
+.king.black{
+    background-size: 9.5vw;
+}
+.queen.white{
+    background-size: 10vw;
+}
+.queen.black{
+    background-size: 10vw;
+}
 }
