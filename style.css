@@ -1,0 +1,195 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;500&display=swap');
+.container{
+    position: relative;
+    width:100%;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(wither/background.webp);
+    background-position: center;
+}
+.container_chose{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backdrop-filter:blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: 20vw;
+}
+.chose{
+    position: relative;
+    width: 30%;
+    height: 20vw;
+    background-color: #170C36;
+    border-radius: 1vw;
+    box-shadow: 0px 0px 10px #966FFF;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.title{
+    font-family: 'Akshar', sans-serif;
+    font-size: 1.5vw;
+    font-weight: bold;
+    color: #966FFF;
+}
+.descricao{
+    font-family: 'Akshar', sans-serif;
+    font-size: 1vw;
+    font-weight: thin;
+    color: #966FFF;   
+    width: 18vw;
+    text-indent: 1vw; 
+}
+.cor{
+    font-family: 'Akshar', sans-serif;
+    font-size: 1vw;
+    font-weight: bold;
+    color: #966FFF;   
+}
+.titulo{
+    margin-top: 1vw;
+    width: 10vw;
+    height: 2vw;
+}
+.background{
+    width:20vw;
+    position: absolute;
+    left: -8.4vw;
+    top: -8.4vw;
+}
+#black{
+    width: 5vw;
+    height: 2vw;
+    font-family: 'Akshar', sans-serif;
+    font-size: 1vw;
+    font-weight: bold;
+    color: #170C36;   
+    border-radius: 0.5vw;
+    background-color: #5F3FF2;
+    cursor: pointer;
+    transition: 0.1s;
+}
+#white{
+    width: 5vw;
+    height: 2vw;
+    font-family: 'Akshar', sans-serif;
+    font-size: 1vw;
+    font-weight: bold;
+    color: #170C36;   
+    border-radius: 0.5vw;
+    background-color: #C988E5;
+    cursor: pointer;
+    transition: 0.1s;
+}
+.chose button:hover{
+    transform: scale(1.1);
+}
+.xadrez{
+    width:50%;
+    height:40vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-areas: 'r8c1 r8c2 r8c3 r8c4 r8c5 r8c6 r8c7 r8c8'
+                         'r7c1 r7c2 r7c3 r7c4 r7c5 r7c6 r7c7 r7c8'
+                         'r6c1 r6c2 r6c3 r6c4 r6c5 r6c6 r6c7 r6c8'
+                         'r5c1 r5c2 r5c3 r5c4 r5c5 r5c6 r5c7 r5c8'
+                         'r4c1 r4c2 r4c3 r4c4 r4c5 r4c6 r4c7 r4c8'
+                         'r3c1 r3c2 r3c3 r3c4 r3c5 r3c6 r3c7 r3c8'
+                         'r2c1 r2c2 r2c3 r2c4 r2c5 r2c6 r2c7 r2c8'
+                         'r1c1 r1c2 r1c3 r1c4 r1c5 r1c6 r1c7 r1c8';
+    border: solid 1vw black;
+    border-radius: 1vw;
+}
+.red{background-color: red !important; }
+.blue{background-color: blue !important; }
+.orange{background-color: orange !important;}
+.peao.white{
+    background-image: url(wither/peao_branco.png);
+    background-position: bottom;
+    background-size: 3.4vw;
+    background-repeat: no-repeat;
+}
+.peao.black{
+    background-image: url(wither/peao_preto.png);
+    background-position: bottom;
+    background-size: 3.4vw;
+    background-repeat: no-repeat;
+}
+.torre.white{
+    background-image: url(wither/torre_branca.png);
+    background-position: center;
+    background-size: 3.6vw;
+    background-repeat: no-repeat;
+}
+
+.torre.black{
+    background-image: url(wither/torre_preta.png);
+    background-position: center;
+    background-size: 4vw;
+    background-repeat: no-repeat;
+}
+.cavalo.white{
+    background-image: url(wither/cavalo_branco.png);
+    background-position: center;
+    background-size: 4vw;
+    background-repeat: no-repeat;
+}
+.cavalo.black{
+    background-image: url(wither/cavalo_preto.png);
+    background-position: center;
+    background-size: 4.2vw;
+    background-repeat: no-repeat;
+}
+.bispo.white{
+    background-image: url(wither/bispo_branco.png);
+    background-position: center;
+    background-size: 3.3vw;
+    background-repeat: no-repeat;
+}
+.bispo.black{
+    background-image: url(wither/bispo_preto.png);
+    background-position: center;
+    background-size: 3.3vw;
+    background-repeat: no-repeat;
+}
+.king.white{
+    background-image: url(wither/rei_branco.png);
+    background-position: center;
+    background-size: 4.4vw;
+    background-repeat: no-repeat;
+}
+.king.black{
+    background-image: url(wither/rei_preto.png);
+    background-position: center;
+    background-size: 4.4vw;
+    background-repeat: no-repeat;
+}
+.queen.white{
+    background-image: url(wither/rainha_branca.png);
+    background-position: center;
+    background-size: 4.6vw;
+    background-repeat: no-repeat;
+}
+.queen.black{
+    background-image: url(wither/rainha_preta.png);
+    background-position: bottom;
+    background-size: 4.7vw;
+    background-repeat: no-repeat;
+}
+
+@media(max-width: 600px){
+
+}
