@@ -2,6 +2,7 @@ let container = document.querySelector(".xadrez")
 
 document.querySelector('#black').addEventListener('click',function(){
     document.querySelector('.container_chose').style.display = 'none'
+    document.querySelector('.dark_background').style.display = 'none'
     for(i=0;i<8;i++){
         chess[i].map(conteudo =>{
             switch (document.querySelector(`.${conteudo}`).classList[2]){
@@ -33,20 +34,25 @@ document.querySelector('#black').addEventListener('click',function(){
 })
 document.querySelector('#white').addEventListener('click',function(){
     document.querySelector('.container_chose').style.display = 'none'
+    document.querySelector('.dark_background').style.display = 'none'
 })
-
+let contador = 0
 
 
 function aux(cod){
     if(cod.className.indexOf('active') != -1 || cod.className.indexOf('blue') != -1 || cod.className.indexOf('orange') != -1){
-        switch((cod.classList[1])){
+        switch(cod.classList[1]){
             //blue apenas troca a posicao do vermelho pelo azul 
             case 'blue':
+                document.querySelector('.xadrez').style.left = '6.6vw'
+                document.querySelector('.score').style.right = '6.6vw'
+
                 let redchess = document.querySelector('.red').classList[0]
                 let blueDescri = document.querySelector('.red').className.slice(5)
                 let bluechess = cod.classList[0]
+                document.querySelector('.score').innerHTML += `<div class='sco_${document.querySelector(`.${redchess}`).classList[2]}'>aiiii calica</div>`
+
                 document.querySelector(`.${bluechess}`).className = `${bluechess} ${blueDescri}`
-                console.log(cod.classList[2])
                 /*only peao*/document.querySelector(`.${bluechess}`).classList.remove('step') 
                 //active
                                 for(i=0;i<document.querySelectorAll(`.${document.querySelector('.red').classList[2]}`).length;i++){
@@ -855,13 +861,13 @@ function aux(cod){
                 let orangeRow = Number(cod.className.slice(1,2))-1
                 let orangeCol1 = Number(cod.className.slice(3,4))+1
                 let orangeCol2 = Number(cod.className.slice(3,4))-1
-                    if(document.querySelector(`.r${orangeRow}c${orangeCol1}`).classList[2] != cod.classList[2] && document.querySelector(`.r${orangeRow}c${orangeCol1}`).classList[2] != undefined){
+                    if(document.querySelector(`.r${orangeRow}c${orangeCol1}`) != null && document.querySelector(`.r${orangeRow}c${orangeCol1}`).classList[2] != cod.classList[2] && document.querySelector(`.r${orangeRow}c${orangeCol1}`).classList[2] != undefined){
                         let a = document.querySelector(`.r${orangeRow}c${orangeCol1}`).className.slice(4)
                         document.querySelector(`.r${orangeRow}c${orangeCol1}`).className = document.querySelector(`.r${orangeRow}c${orangeCol1}`).className.slice(0,4) 
                         document.querySelector(`.r${orangeRow}c${orangeCol1}`).classList.add('orange')
                         document.querySelector(`.r${orangeRow}c${orangeCol1}`).className += a
                     }
-                    if(document.querySelector(`.r${orangeRow}c${orangeCol2}`).classList[2] != cod.classList[2] && document.querySelector(`.r${orangeRow}c${orangeCol2}`).classList[2] != undefined){
+                    if(document.querySelector(`.r${orangeRow}c${orangeCol2}`) != null && document.querySelector(`.r${orangeRow}c${orangeCol2}`).classList[2] != cod.classList[2] && document.querySelector(`.r${orangeRow}c${orangeCol2}`).classList[2] != undefined){
                         let a = document.querySelector(`.r${orangeRow}c${orangeCol2}`).className.slice(4)
                         document.querySelector(`.r${orangeRow}c${orangeCol2}`).className = document.querySelector(`.r${orangeRow}c${orangeCol2}`).className.slice(0,4) 
                         document.querySelector(`.r${orangeRow}c${orangeCol2}`).classList.add('orange')
@@ -871,13 +877,13 @@ function aux(cod){
                 let orangeRow = Number(cod.className.slice(1,2))+1
                 let orangeCol1 = Number(cod.className.slice(3,4))-1
                 let orangeCol2 = Number(cod.className.slice(3,4))+1
-                if(document.querySelector(`.r${orangeRow}c${orangeCol1}`).classList[2] != cod.classList[2] && document.querySelector(`.r${orangeRow}c${orangeCol1}`).classList[2] != undefined){
+                if(document.querySelector(`.r${orangeRow}c${orangeCol1}`) != null && document.querySelector(`.r${orangeRow}c${orangeCol1}`).classList[2] != cod.classList[2] && document.querySelector(`.r${orangeRow}c${orangeCol1}`).classList[2] != undefined){
                     let a = document.querySelector(`.r${orangeRow}c${orangeCol1}`).className.slice(4)
                     document.querySelector(`.r${orangeRow}c${orangeCol1}`).className = document.querySelector(`.r${orangeRow}c${orangeCol1}`).className.slice(0,4) 
                     document.querySelector(`.r${orangeRow}c${orangeCol1}`).classList.add('orange')
                     document.querySelector(`.r${orangeRow}c${orangeCol1}`).className += a
                 }
-                if(document.querySelector(`.r${orangeRow}c${orangeCol2}`).classList[2] != cod.classList[2] && document.querySelector(`.r${orangeRow}c${orangeCol2}`).classList[2] != undefined){
+                if(document.querySelector(`.r${orangeRow}c${orangeCol2}`) != null && document.querySelector(`.r${orangeRow}c${orangeCol2}`).classList[2] != cod.classList[2] && document.querySelector(`.r${orangeRow}c${orangeCol2}`).classList[2] != undefined){
                     let a = document.querySelector(`.r${orangeRow}c${orangeCol2}`).className.slice(4)
                     document.querySelector(`.r${orangeRow}c${orangeCol2}`).className = document.querySelector(`.r${orangeRow}c${orangeCol2}`).className.slice(0,4) 
                     document.querySelector(`.r${orangeRow}c${orangeCol2}`).classList.add('orange')
@@ -964,14 +970,14 @@ for(let i=chess.length-1;i>=0;i--){
             if(i==7){
                 container.innerHTML += 
                 `
-                <div class='${chess[i][0]} torre white active' onclick="aux(this)" style="background-color: #392B61; grid-area:${chess[i][0]};" ></div>
-                <div class='${chess[i][1]} cavalo white active' onclick="aux(this)" style="background-color: #9670FF; grid-area:${chess[i][1]};"></div>
-                <div class='${chess[i][2]} bispo white active' onclick="aux(this)" style="background-color: #392B61; grid-area:${chess[i][2]};"></div>
-                <div class='${chess[i][3]} queen white active' onclick="aux(this)" style="background-color: #9670FF; grid-area:${chess[i][3]};"></div>
-                <div class='${chess[i][4]} king white active' onclick="aux(this)" style="background-color: #392B61; grid-area:${chess[i][4]};"></div>
-                <div class='${chess[i][5]} bispo white active' onclick="aux(this)" style="background-color: #9670FF; grid-area:${chess[i][5]};"></div>
-                <div class='${chess[i][6]} cavalo white active' onclick="aux(this)" style="background-color: #392B61; grid-area:${chess[i][6]};"></div>
-                <div class='${chess[i][7]} torre white active' onclick="aux(this)" style="background-color: #9670FF; grid-area:${chess[i][7]};"></div>
+                <div class='${chess[i][0]} torre white active' onclick="aux(this)" style="background-color: #392B61; position:relative; grid-area:${chess[i][0]};" ></div>
+                <div class='${chess[i][1]} cavalo white active' onclick="aux(this)" style="background-color: #9670FF; position:relative; grid-area:${chess[i][1]};"></div>
+                <div class='${chess[i][2]} bispo white active' onclick="aux(this)" style="background-color: #392B61; position:relative; grid-area:${chess[i][2]};"></div>
+                <div class='${chess[i][3]} queen white active' onclick="aux(this)" style="background-color: #9670FF; position:relative; grid-area:${chess[i][3]};"></div>
+                <div class='${chess[i][4]} king white active' onclick="aux(this)" style="background-color: #392B61; position:relative; grid-area:${chess[i][4]};"></div>
+                <div class='${chess[i][5]} bispo white active' onclick="aux(this)" style="background-color: #9670FF; position:relative; grid-area:${chess[i][5]};"></div>
+                <div class='${chess[i][6]} cavalo white active' onclick="aux(this)" style="background-color: #392B61; position:relative; grid-area:${chess[i][6]};"></div>
+                <div class='${chess[i][7]} torre white active' onclick="aux(this)" style="background-color: #9670FF; position:relative; grid-area:${chess[i][7]};"></div>
                 `                                        
             }
             else{
@@ -987,4 +993,32 @@ for(let i=chess.length-1;i>=0;i--){
             <div class='${chess[i][7]}' onclick="aux(this)" style="background-color: #9670FF; grid-area:${chess[i][7]};"></div>
             `
         }}}
+}
+for(i=1;i<=8;i++){
+    if(i%2 == 0){
+        document.querySelector(`.r${i}c1`).innerHTML += `<p class='numWhite'>${i}</p>`
+    }
+    else{
+        document.querySelector(`.r${i}c1`).innerHTML += `<p class='numBlack'>${i}</p>`
+    }
+    switch(i){
+        case 1:document.querySelector(`.r1c${i}`).innerHTML +=`<p class='letrBlack'>A</p>`
+        break
+        case 2:document.querySelector(`.r1c${i}`).innerHTML +=`<p class='letrWhite'>B</p>`
+        break
+        case 3:document.querySelector(`.r1c${i}`).innerHTML +=`<p class='letrBlack'>C</p>`
+        break
+        case 4:document.querySelector(`.r1c${i}`).innerHTML +=`<p class='letrWhite'>D</p>`
+        break
+        case 5:document.querySelector(`.r1c${i}`).innerHTML +=`<p class='letrBlack'>E</p>`
+        break
+        case 6:document.querySelector(`.r1c${i}`).innerHTML +=`<p class='letrWhite'>F</p>`
+        break
+        case 7:document.querySelector(`.r1c${i}`).innerHTML +=`<p class='letrBlack'>G</p>`
+        break
+        case 8:document.querySelector(`.r1c${i}`).innerHTML +=`<p class='letrWhite'>H</p>` 
+        break
+    }
+
+
 }
