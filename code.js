@@ -50,7 +50,7 @@ function aux(cod){
                 let redchess = document.querySelector('.red').classList[0]
                 let blueDescri = document.querySelector('.red').className.slice(5)
                 let bluechess = cod.classList[0]
-                document.querySelector('.score').innerHTML += `<div class='sco_${document.querySelector(`.${redchess}`).classList[2]}'>aiiii calica</div>`
+                document.querySelector('.score').innerHTML += `<div class='sco_${document.querySelector(`.${redchess}`).classList[2]}'>${(cod.classList[0]).toUpperCase()+' '}</div>`
 
                 document.querySelector(`.${bluechess}`).className = `${bluechess} ${blueDescri}`
                 /*only peao*/document.querySelector(`.${bluechess}`).classList.remove('step') 
