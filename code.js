@@ -46,11 +46,50 @@ function aux(cod){
             case 'blue':
                 document.querySelector('.xadrez').style.left = '6.6vw'
                 document.querySelector('.score').style.right = '6.6vw'
+                document.querySelector('.score').style.boxShadow = '0px 0px 10px #B19DD0'
 
                 let redchess = document.querySelector('.red').classList[0]
                 let blueDescri = document.querySelector('.red').className.slice(5)
                 let bluechess = cod.classList[0]
-                document.querySelector('.score').innerHTML += `<div class='sco_${document.querySelector(`.${redchess}`).classList[2]}'>${(cod.classList[0]).toUpperCase()+' '}</div>`
+                let columblue =''
+                switch (bluechess.slice(3)){
+                    case '1': columblue = 'A'
+                    break
+                    case '2': columblue = 'B'
+                    break 
+                    case '3': columblue = 'C'
+                    break 
+                    case '4': columblue = 'D'
+                    break 
+                    case '5': columblue = 'E'
+                    break 
+                    case '6': columblue = 'F'
+                    break 
+                    case '7': columblue = 'G'
+                    break 
+                    case '8': columblue = 'H'
+                    break  
+                }
+                let columred =''
+                switch (redchess.slice(3)){
+                    case '1': columred = 'A'
+                    break
+                    case '2': columred = 'B'
+                    break 
+                    case '3': columred = 'C'
+                    break 
+                    case '4': columred = 'D'
+                    break 
+                    case '5': columred = 'E'
+                    break 
+                    case '6': columred = 'F'
+                    break 
+                    case '7': columred = 'G'
+                    break 
+                    case '8': columred = 'H'
+                    break  
+                }
+                document.querySelector('.score').innerHTML += `<div class='sco_${document.querySelector(`.${redchess}`).classList[2]}'>${columred+redchess.slice(1,2)} ==> ${columblue+bluechess.slice(1,2)}<img class='scorePiece' src="wither/${document.querySelector(`.${redchess}`).classList[1]}_${document.querySelector(`.${redchess}`).classList[2]}.png">                </div>`
 
                 document.querySelector(`.${bluechess}`).className = `${bluechess} ${blueDescri}`
                 /*only peao*/document.querySelector(`.${bluechess}`).classList.remove('step') 
@@ -84,6 +123,45 @@ function aux(cod){
                 let redchesss = document.querySelector('.red').classList[0]
                 let orangeDescri = document.querySelector('.red').className.slice(5)
                 let orangechess = cod.classList[0]
+                let columblueO =''
+                switch (orangechess.slice(3)){
+                    case '1': columblueO = 'A'
+                    break
+                    case '2': columblueO = 'B'
+                    break 
+                    case '3': columblueO = 'C'
+                    break 
+                    case '4': columblueO = 'D'
+                    break 
+                    case '5': columblueO = 'E'
+                    break 
+                    case '6': columblueO = 'F'
+                    break 
+                    case '7': columblueO = 'G'
+                    break 
+                    case '8': columblueO = 'H'
+                    break  
+                }
+                let columredO =''
+                switch (redchesss.slice(3)){
+                    case '1': columredO = 'A'
+                    break
+                    case '2': columredO = 'B'
+                    break 
+                    case '3': columredO = 'C'
+                    break 
+                    case '4': columredO = 'D'
+                    break 
+                    case '5': columredO = 'E'
+                    break 
+                    case '6': columredO = 'F'
+                    break 
+                    case '7': columredO = 'G'
+                    break 
+                    case '8': columredO = 'H'
+                    break  
+                }
+                document.querySelector('.score').innerHTML += `<div class='sco_${document.querySelector(`.${redchesss}`).classList[2]}'>${columredO+redchesss.slice(1,2)} ==> ${columblueO+orangechess.slice(1,2)}<img class='scorePiece' src="wither/${document.querySelector(`.${redchesss}`).classList[1]}_${document.querySelector(`.${redchesss}`).classList[2]}.png"><img class='littleOrange' src="wither/${document.querySelector(`.${orangechess}`).classList[2]}_${document.querySelector(`.${orangechess}`).classList[3]}.png"></div>`
                 document.querySelector(`.${orangechess}`).className = `${orangechess} ${orangeDescri}`
                 //active
                             for(i=0;i<document.querySelectorAll(`.${document.querySelector('.red').classList[2]}`).length;i++){
