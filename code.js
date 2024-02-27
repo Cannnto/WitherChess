@@ -324,7 +324,7 @@ function aux(cod){
                     conteudo.classList.add('blue')
                     if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
                         if(conteudo.classList[2] != cod.classList[2]){
-                            linha3_W.splice(auxx3Quenn+1)
+                            linha3_Quenn.splice(auxx3Quenn+1)
                             conteudo.classList.remove('blue')
                             //orange
                             let a = conteudo.className.slice(4)
