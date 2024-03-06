@@ -27,6 +27,7 @@ document.querySelector('#black').addEventListener('click',function(){
                     for(ii=0;ii<array.length;ii++){
                         document.querySelector(`.${conteudo}`).classList.add(array[ii])
                     }
+                    document.querySelector(`.${conteudo}`).classList.add('active')
                 break
             }
         })
@@ -35,9 +36,14 @@ document.querySelector('#black').addEventListener('click',function(){
 document.querySelector('#white').addEventListener('click',function(){
     document.querySelector('.container_chose').style.display = 'none'
     document.querySelector('.dark_background').style.display = 'none'
+    for(i=0;i<8;i++){
+        chess[i].map(conteudo =>{
+            if(document.querySelector(`.${conteudo}`).classList[2] == 'white'){
+                    document.querySelector(`.${conteudo}`).classList.add('active')
+            }
+        })
+    }
 })
-let contador = 0
-
 
 function aux(cod){
     if(cod.className.indexOf('active') != -1 || cod.className.indexOf('blue') != -1 || cod.className.indexOf('orange') != -1){
@@ -190,22 +196,6 @@ function aux(cod){
                 }   
             break
             case 'queen':
-                let blue_R1_Queen = Number(cod.className.slice(1,2))+1
-                let blue_R2_Queen = Number(cod.className.slice(1,2))
-                let blue_R3_Queen = Number(cod.className.slice(1,2))-1
-                let blue_C1_Queen = Number(cod.className.slice(3,4))-1
-                let blue_C2_Queen = Number(cod.className.slice(3,4))
-                let blue_C3_Queen = Number(cod.className.slice(3,4))+1
-                let blue1_Queen = document.querySelector(`.r${blue_R1_Queen}c${blue_C1_Queen}`)
-                let blue2_Queen = document.querySelector(`.r${blue_R1_Queen}c${blue_C2_Queen}`)
-                let blue3_Queen = document.querySelector(`.r${blue_R1_Queen}c${blue_C3_Queen}`)
-                let blue4_Queen = document.querySelector(`.r${blue_R2_Queen}c${blue_C1_Queen}`)
-                let blue5_Queen = document.querySelector(`.r${blue_R2_Queen}c${blue_C3_Queen}`)
-                let blue6_Queen = document.querySelector(`.r${blue_R3_Queen}c${blue_C1_Queen}`)
-                let blue7_Queen = document.querySelector(`.r${blue_R3_Queen}c${blue_C2_Queen}`)
-                let blue8_Queen = document.querySelector(`.r${blue_R3_Queen}c${blue_C3_Queen}`)
-                let Queen = [blue1_Queen,blue2_Queen,blue3_Queen,blue4_Queen,blue5_Queen,blue6_Queen,blue7_Queen,blue8_Queen]
-
                                 //controlador de opções
                         if(document.querySelector('.red') != null){
                             document.querySelector('.red').classList.remove('red')
@@ -224,26 +214,6 @@ function aux(cod){
                         }
                 //red
                 cod.classList.add('red')      
-                //blue filter
-                let blues_Queen = Queen.filter(conteudo => {
-                    return conteudo != null && conteudo.classList[1] == undefined;
-                });
-                //orange filter
-                let orange_Queen = Queen.filter(conteudo => {
-                    return conteudo != null && conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined;
-                });
-
-                //blue map
-                blues_Queen.map(azuis => {
-                    return azuis.classList.add('blue')
-                })
-                //orange.map
-                orange_Queen.map(laranja =>{
-                    let a = laranja.className.slice(4)
-                    laranja.className = laranja.classList[0]
-                    laranja.classList.add('orange')
-                    return laranja.className += a
-                })
                 let posiWQuenn=[Number(cod.className.slice(1,2)),Number(cod.className.slice(3,4))]
                 let linha1Quenn =[]
                 let linha2Quenn =[]
@@ -969,6 +939,48 @@ function aux(cod){
             }}
         break       
     }}
+    let au=[]
+        for(i=0;i<2;i++){
+            au[i] = document.querySelectorAll('.king')[i]
+        }
+        let auu = au.filter(conteudo =>{
+            return conteudo.classList[2] != cod.classList[2]    
+        })
+    let posi=[Number(auu[0].className.slice(1,2)),Number(auu[0].className.slice(3,4))]
+    let linha1Hori =[]
+    let linha2Hori =[]
+    let linha3Hori =[]
+    let linha4Hori =[]
+    let linha1Diag =[]
+    let linha2Diag =[]
+    let linha3Diag =[]
+    let linha4Diag =[]
+    for(i=0;i<=8;i++){
+        linha1Diag[i] = document.querySelector(`.r${posi[0]+(i+1)}c${posi[1]-(i+1)}`)
+        linha2Diag[i] = document.querySelector(`.r${posi[0]+(i+1)}c${posi[1]+(i+1)}`)
+        linha3Diag[i] = document.querySelector(`.r${posi[0]-(i+1)}c${posi[1]-(i+1)}`)
+        linha4Diag[i] = document.querySelector(`.r${posi[0]-(i+1)}c${posi[1]+(i+1)}`)
+        linha1Hori[i] = document.querySelector(`.r${posi[0]+(i+1)}c${posi[1]}`) 
+        linha2Hori[i] = document.querySelector(`.r${posi[0]-(i+1)}c${posi[1]}`)
+        linha3Hori[i] = document.querySelector(`.r${posi[0]}c${posi[1]+(i+1)}`)
+        linha4Hori[i] = document.querySelector(`.r${posi[0]}c${posi[1]-(i+1)}`)
+    }
+    let linha1_Diag= linha1Diag.filter(conteudo =>{
+        return conteudo != null                     })
+    let linha2_Diag= linha2Diag.filter(conteudo =>{
+        return conteudo != null                     })
+    let linha3_Diag= linha3Diag.filter(conteudo =>{
+        return conteudo != null                     })
+    let linha4_Diag= linha4Diag.filter(conteudo =>{
+        return conteudo != null                     })
+    let linha1_Hori= linha1Hori.filter(conteudo =>{
+        return conteudo != null                     })
+    let linha2_Hori= linha2Hori.filter(conteudo =>{
+        return conteudo != null                     })
+    let linha3_Hori= linha3Hori.filter(conteudo =>{
+        return conteudo != null                     })
+    let linha4_Hori= linha4Hori.filter(conteudo =>{
+        return conteudo != null                     })
 }
 
 
@@ -993,14 +1005,14 @@ for(let i=chess.length-1;i>=0;i--){
     //6
             container.innerHTML += 
     `
-    <div class='${chess[i][0]} peao white front step active' onclick="aux(this)" style="background-color: #9670FF; grid-area:${chess[i][0]};" ></div>
-    <div class='${chess[i][1]} peao white front step active' onclick="aux(this)" style="background-color: #392B61; grid-area:${chess[i][1]};"></div>
-    <div class='${chess[i][2]} peao white front step active' onclick="aux(this)" style="background-color: #9670FF; grid-area:${chess[i][2]};"></div>
-    <div class='${chess[i][3]} peao white front step active' onclick="aux(this)" style="background-color: #392B61; grid-area:${chess[i][3]};"></div>
-    <div class='${chess[i][4]} peao white front step active' onclick="aux(this)" style="background-color: #9670FF; grid-area:${chess[i][4]};"></div>
-    <div class='${chess[i][5]} peao white front step active' onclick="aux(this)" style="background-color: #392B61; grid-area:${chess[i][5]};"></div>
-    <div class='${chess[i][6]} peao white front step active' onclick="aux(this)" style="background-color: #9670FF; grid-area:${chess[i][6]};"></div>
-    <div class='${chess[i][7]} peao white front step active' onclick="aux(this)" style="background-color: #392B61; grid-area:${chess[i][7]};"></div>
+    <div class='${chess[i][0]} peao white front step' onclick="aux(this)" style="background-color: #9670FF; grid-area:${chess[i][0]};" ></div>
+    <div class='${chess[i][1]} peao white front step' onclick="aux(this)" style="background-color: #392B61; grid-area:${chess[i][1]};"></div>
+    <div class='${chess[i][2]} peao white front step' onclick="aux(this)" style="background-color: #9670FF; grid-area:${chess[i][2]};"></div>
+    <div class='${chess[i][3]} peao white front step' onclick="aux(this)" style="background-color: #392B61; grid-area:${chess[i][3]};"></div>
+    <div class='${chess[i][4]} peao white front step' onclick="aux(this)" style="background-color: #9670FF; grid-area:${chess[i][4]};"></div>
+    <div class='${chess[i][5]} peao white front step' onclick="aux(this)" style="background-color: #392B61; grid-area:${chess[i][5]};"></div>
+    <div class='${chess[i][6]} peao white front step' onclick="aux(this)" style="background-color: #9670FF; grid-area:${chess[i][6]};"></div>
+    <div class='${chess[i][7]} peao white front step' onclick="aux(this)" style="background-color: #392B61; grid-area:${chess[i][7]};"></div>
     `        
         }
         else{
@@ -1048,14 +1060,14 @@ for(let i=chess.length-1;i>=0;i--){
             if(i==7){
                 container.innerHTML += 
                 `
-                <div class='${chess[i][0]} torre white active' onclick="aux(this)" style="background-color: #392B61; position:relative; grid-area:${chess[i][0]};" ></div>
-                <div class='${chess[i][1]} cavalo white active' onclick="aux(this)" style="background-color: #9670FF; position:relative; grid-area:${chess[i][1]};"></div>
-                <div class='${chess[i][2]} bispo white active' onclick="aux(this)" style="background-color: #392B61; position:relative; grid-area:${chess[i][2]};"></div>
-                <div class='${chess[i][3]} queen white active' onclick="aux(this)" style="background-color: #9670FF; position:relative; grid-area:${chess[i][3]};"></div>
-                <div class='${chess[i][4]} king white active' onclick="aux(this)" style="background-color: #392B61; position:relative; grid-area:${chess[i][4]};"></div>
-                <div class='${chess[i][5]} bispo white active' onclick="aux(this)" style="background-color: #9670FF; position:relative; grid-area:${chess[i][5]};"></div>
-                <div class='${chess[i][6]} cavalo white active' onclick="aux(this)" style="background-color: #392B61; position:relative; grid-area:${chess[i][6]};"></div>
-                <div class='${chess[i][7]} torre white active' onclick="aux(this)" style="background-color: #9670FF; position:relative; grid-area:${chess[i][7]};"></div>
+                <div class='${chess[i][0]} torre white' onclick="aux(this)" style="background-color: #392B61; position:relative; grid-area:${chess[i][0]};" ></div>
+                <div class='${chess[i][1]} cavalo white' onclick="aux(this)" style="background-color: #9670FF; position:relative; grid-area:${chess[i][1]};"></div>
+                <div class='${chess[i][2]} bispo white' onclick="aux(this)" style="background-color: #392B61; position:relative; grid-area:${chess[i][2]};"></div>
+                <div class='${chess[i][3]} queen white' onclick="aux(this)" style="background-color: #9670FF; position:relative; grid-area:${chess[i][3]};"></div>
+                <div class='${chess[i][4]} king white' onclick="aux(this)" style="background-color: #392B61; position:relative; grid-area:${chess[i][4]};"></div>
+                <div class='${chess[i][5]} bispo white' onclick="aux(this)" style="background-color: #9670FF; position:relative; grid-area:${chess[i][5]};"></div>
+                <div class='${chess[i][6]} cavalo white' onclick="aux(this)" style="background-color: #392B61; position:relative; grid-area:${chess[i][6]};"></div>
+                <div class='${chess[i][7]} torre white' onclick="aux(this)" style="background-color: #9670FF; position:relative; grid-area:${chess[i][7]};"></div>
                 `                                        
             }
             else{
