@@ -215,247 +215,59 @@ function aux(cod){
                 //red
                 cod.classList.add('red')      
                 let posiWQuenn=[Number(cod.className.slice(1,2)),Number(cod.className.slice(3,4))]
-                let linha1Quenn =[]
-                let linha2Quenn =[]
-                let linha3Quenn =[]
-                let linha4Quenn =[]
-                for(i=0;i<=8;i++){
-                    linha1Quenn[i] = document.querySelector(`.r${posiWQuenn[0]+(i+1)}c${posiWQuenn[1]-(i+1)}`)
-                    linha2Quenn[i] = document.querySelector(`.r${posiWQuenn[0]+(i+1)}c${posiWQuenn[1]+(i+1)}`)
-                    linha3Quenn[i] = document.querySelector(`.r${posiWQuenn[0]-(i+1)}c${posiWQuenn[1]-(i+1)}`)
-                    linha4Quenn[i] = document.querySelector(`.r${posiWQuenn[0]-(i+1)}c${posiWQuenn[1]+(i+1)}`)
-                }
-                let linha1_Quenn = linha1Quenn.filter(conteudo =>{
-                        return conteudo != null
-                })
-                let linha2_Quenn = linha2Quenn.filter(conteudo =>{
-                        return conteudo != null
-                })
-                let linha3_Quenn = linha3Quenn.filter(conteudo =>{
-                        return conteudo != null
-                })
-                let linha4_Quenn = linha4Quenn.filter(conteudo =>{
-                        return conteudo != null
-                })
-                let auxx1Quenn=-1
-                let auxx2Quenn=-1
-                let auxx3Quenn=-1
-                let auxx4Quenn=-1
-
-                                                        //linha1
-                linha1_Quenn.map(conteudo =>{
-                    auxx1Quenn++
-                    conteudo.classList.add('blue')
-                    if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                        if(conteudo.classList[2] != cod.classList[2]){
-                            linha1_Quenn.splice(auxx1Quenn+1)
-                            conteudo.classList.remove('blue')
-                            //orange
-                            let a = conteudo.className.slice(4)
-                            conteudo.className = conteudo.className.slice(0,4)
-                            conteudo.classList.add('orange')
-                            conteudo.className += a
-                            auxx1Quenn = -1    
-                        }
-                        else{
-                            linha1_Quenn.splice(auxx1Quenn)
-                            conteudo.classList.remove('blue')
-                            auxx1Quenn = -1
-                        }
-                    }   
-                    return conteudo && auxx1Quenn           
-                })
-                                                        //linha2
-                linha2_Quenn.map(conteudo =>{
-                    auxx2Quenn++
-                    conteudo.classList.add('blue')
-                    if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                        if(conteudo.classList[2] != cod.classList[2]){
-                            linha2_Quenn.splice(auxx2Quenn+1)
-                            conteudo.classList.remove('blue')
-                            //orange
-                            let a = conteudo.className.slice(4)
-                            conteudo.className = conteudo.className.slice(0,4)
-                            conteudo.classList.add('orange')
-                            conteudo.className += a
-                            auxx2Quenn = -1    
-                        }
-                        else{
-                            linha2_Quenn.splice(auxx2Quenn)
-                            conteudo.classList.remove('blue')
-                            auxx2Quenn = -1
-                        }
-                    }   
-                    return conteudo && auxx2Quenn           
-                })
-                                                        //linha3          
-                linha3_Quenn.map(conteudo =>{
-                    auxx3Quenn++
-                    conteudo.classList.add('blue')
-                    if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                        if(conteudo.classList[2] != cod.classList[2]){
-                            linha3_Quenn.splice(auxx3Quenn+1)
-                            conteudo.classList.remove('blue')
-                            //orange
-                            let a = conteudo.className.slice(4)
-                            conteudo.className = conteudo.className.slice(0,4)
-                            conteudo.classList.add('orange')
-                            conteudo.className += a
-                            auxx3Quenn = -1    
-                        }
-                        else{
-                            linha3_Quenn.splice(auxx3Quenn)
-                            conteudo.classList.remove('blue')
-                            auxx3Quenn = -1
-                        }
-                    }   
-                    return conteudo && auxx3Quenn         
-                })             
-                                                        //linha4
-                linha4_Quenn.map(conteudo =>{
-                    auxx4Quenn++
-                    conteudo.classList.add('blue')
-                    if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                        if(conteudo.classList[2] != cod.classList[2]){
-                            linha4_Quenn.splice(auxx4Quenn+1)
-                            conteudo.classList.remove('blue')
-                            //orange
-                            let a = conteudo.className.slice(4)
-                            conteudo.className = conteudo.className.slice(0,4)
-                            conteudo.classList.add('orange')
-                            conteudo.className += a
-                            auxx4Quenn = -1    
-                        }
-                        else{
-                            linha4_Quenn.splice(auxx4Quenn)
-                            conteudo.classList.remove('blue')
-                            auxx4Quenn = -1
-                        }
-                    }   
-                    return conteudo && auxx4Quenn           
-                })
-                //torre part
                 let posi=[Number(cod.className.slice(1,2)),Number(cod.className.slice(3,4))]
-                let linha1Y =[]
-                let linha2Y =[]
-                let linha1X =[]
-                let linha2X =[]
-                for(i=0;i<8;i++){
-                    linha1Y[i] = document.querySelector(`.r${posi[0]+(i+1)}c${posi[1]}`) 
-                    linha2Y[i] = document.querySelector(`.r${posi[0]-(i+1)}c${posi[1]}`)
-                    linha1X[i] = document.querySelector(`.r${posi[0]}c${posi[1]+(i+1)}`)
-                    linha2X[i] = document.querySelector(`.r${posi[0]}c${posi[1]-(i+1)}`)
+                let line1Quenn =[]
+                let line2Quenn =[]
+                let line3Quenn =[]
+                let line4Quenn =[]
+                let line1Y =[]
+                let line2Y =[]
+                let line1X =[]
+                let line2X =[]
+                for(i=0;i<=8;i++){
+                    line1Quenn[i] = document.querySelector(`.r${posiWQuenn[0]+(i+1)}c${posiWQuenn[1]-(i+1)}`)
+                    line2Quenn[i] = document.querySelector(`.r${posiWQuenn[0]+(i+1)}c${posiWQuenn[1]+(i+1)}`)
+                    line3Quenn[i] = document.querySelector(`.r${posiWQuenn[0]-(i+1)}c${posiWQuenn[1]-(i+1)}`)
+                    line4Quenn[i] = document.querySelector(`.r${posiWQuenn[0]-(i+1)}c${posiWQuenn[1]+(i+1)}`)
+                    line1Y[i] = document.querySelector(`.r${posi[0]+(i+1)}c${posi[1]}`) 
+                    line2Y[i] = document.querySelector(`.r${posi[0]-(i+1)}c${posi[1]}`)
+                    line1X[i] = document.querySelector(`.r${posi[0]}c${posi[1]+(i+1)}`)
+                    line2X[i] = document.querySelector(`.r${posi[0]}c${posi[1]-(i+1)}`)
                 }
-            let linha1_Y = linha1Y.filter(conteudo =>{
+                let linesQuenn = [line1Y,line2Y,line1X,line2X,line1Quenn,line2Quenn,line3Quenn,line4Quenn]
+                let linesQuenn_=[]
+                for(i=0;i<8;i++) {
+                    linesQuenn_[i] = linesQuenn[i].filter(conteudo =>{
                     return conteudo != null
-            })
-            let linha2_Y = linha2Y.filter(conteudo =>{
-                    return conteudo != null
-            })
-            let linha1_X = linha1X.filter(conteudo =>{
-                    return conteudo != null
-            })
-            let linha2_X = linha2X.filter(conteudo =>{
-                    return conteudo != null
-            })
-            //red
-            cod.classList.add('red')  
-            let auxx1T=-1
-            let auxx2T=-1
-            let auxx3T=-1
-            let auxx4T=-1
-                                                    //linha1Y
-            linha1_Y.map(conteudo =>{
-                auxx1T++
-                conteudo.classList.add('blue')
-                if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                    if(conteudo.classList[2] != cod.classList[2]){
-                        linha1_Y.splice(auxx1T+1)
-                        conteudo.classList.remove('blue')
-                        //orange
-                        let a = conteudo.className.slice(4)
-                        conteudo.className = conteudo.className.slice(0,4)
-                        conteudo.classList.add('orange')
-                        conteudo.className += a
-                        auxx1T = -1    
-                    }
-                    else{
-                        linha1_Y.splice(auxx1T)
-                        conteudo.classList.remove('blue')
-                        auxx1T = -1
-                    }
-                }   
-                return conteudo && auxx1T   
-            })    
-                                                    //linha2Y
-            linha2_Y.map(conteudo =>{
-                auxx2T++
-                conteudo.classList.add('blue')
-                if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                    if(conteudo.classList[2] != cod.classList[2]){
-                        linha2_Y.splice(auxx2T+1)
-                        conteudo.classList.remove('blue')
-                        //orange
-                        let a = conteudo.className.slice(4)
-                        conteudo.className = conteudo.className.slice(0,4)
-                        conteudo.classList.add('orange')
-                        conteudo.className += a
-                        auxx2T = -1    
-                    }
-                    else{
-                        linha2_Y.splice(auxx2T)
-                        conteudo.classList.remove('blue')
-                        auxx2T = -1
-                    }
-                }   
-                return conteudo && auxx2T           
-            })
-                                                    //linha1X     
-            linha1_X.map(conteudo =>{
-                auxx3T++
-                conteudo.classList.add('blue')
-                if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                    if(conteudo.classList[2] != cod.classList[2]){
-                            linha1_X.splice(auxx3T+1)
-                        conteudo.classList.remove('blue')
-                        //orange
-                        let a = conteudo.className.slice(4)
-                        conteudo.className = conteudo.className.slice(0,4)
-                        conteudo.classList.add('orange')
-                        conteudo.className += a
-                        auxx3T = -1    
-                    }
-                    else{
-                        linha1_X.splice(auxx3T)
-                        conteudo.classList.remove('blue')
-                        auxx3T = -1
-                    }
-                }   
-                return conteudo && auxx3T           
-            })             
-                                                    //linha2X
-            linha2_X.map(conteudo =>{
-                auxx4T++
-                conteudo.classList.add('blue')
-                if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                    if(conteudo.classList[2] != cod.classList[2]){
-                            linha2_X.splice(auxx4T+1)
-                        conteudo.classList.remove('blue')
-                        //orange
-                        let a = conteudo.className.slice(4)
-                        conteudo.className = conteudo.className.slice(0,4)
-                        conteudo.classList.add('orange')
-                        conteudo.className += a
-                        auxx4T = -1    
-                    }
-                    else{
-                        linha2_X.splice(auxx4T)
-                        conteudo.classList.remove('blue')
-                        auxx4T = -1
-                    }
-                }   
-                return conteudo && auxx4T           
-            })
+                })}
+
+                for(i=0;i<8;i++){
+                    let auxx=-1
+                    linesQuenn_[i].map(conteudo =>{
+                        auxx++
+                        conteudo.classList.add('blue')
+                        if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
+                            if(conteudo.classList[2] != cod.classList[2]){
+                                linesQuenn_[i].splice(auxx+1)
+                                conteudo.classList.remove('blue')
+                                //orange
+                                let a = conteudo.className.slice(4)
+                                conteudo.className = conteudo.className.slice(0,4)
+                                conteudo.classList.add('orange')
+                                conteudo.className += a
+                                auxx = -1    
+                            }
+                            else{
+                                linesQuenn_[i].splice(auxx)
+                                conteudo.classList.remove('blue')
+                                auxx = -1
+                            }
+                        }   
+                        return conteudo            
+                    })
+                }
+                
+            
             break
             case 'king':
                 let blue_R1 = Number(cod.className.slice(1,2))+1
@@ -515,157 +327,87 @@ function aux(cod){
             break
                                                                                         //TORRE
             case 'torre':
-                        let posiW=[Number(cod.className.slice(1,2)),Number(cod.className.slice(3,4))]
-                        let linha1YW =[]
-                        let linha2YW =[]
-                        let linha1XW =[]
-                        let linha2XW =[]
-                        for(i=0;i<8;i++){
-                            linha1YW[i] = document.querySelector(`.r${posiW[0]+(i+1)}c${posiW[1]}`) 
-                            linha2YW[i] = document.querySelector(`.r${posiW[0]-(i+1)}c${posiW[1]}`)
-                            linha1XW[i] = document.querySelector(`.r${posiW[0]}c${posiW[1]+(i+1)}`)
-                            linha2XW[i] = document.querySelector(`.r${posiW[0]}c${posiW[1]-(i+1)}`)
-                        }
-                                            //controlador de opções
-                                            if(document.querySelector('.red') != null){
-                                                document.querySelector('.red').classList.remove('red')
-                                            }
-                                            if(document.querySelector('.orange') != null){
-                                                const a = document.querySelectorAll('.orange').length
-                                                for(i=0;i<a;i++){
-                                                    document.querySelectorAll('.orange')[0].classList.remove('orange')
-                                                }
-                                            }
-                                            if(document.querySelector('.blue') != null){
-                                                const a = document.querySelectorAll('.blue').length
-                                                for(i=0;i<a;i++){
-                                                    document.querySelectorAll('.blue')[0].classList.remove('blue')
-                                                }
-                                            }
-                    let linha1_YW = linha1YW.filter(conteudo =>{
-                            return conteudo != null
-                    })
-                    let linha2_YW = linha2YW.filter(conteudo =>{
-                            return conteudo != null
-                    })
-                    let linha1_XW = linha1XW.filter(conteudo =>{
-                            return conteudo != null
-                    })
-                    let linha2_XW = linha2XW.filter(conteudo =>{
-                            return conteudo != null
-                    })
-                    //red
-                    cod.classList.add('red')  
-                    let auxx1WT=-1
-                    let auxx2WT=-1
-                    let auxx3WT=-1
-                    let auxx4WT=-1
-                                                            //linha1Y
-                    linha1_YW.map(conteudo =>{
-                        auxx1WT++
+                let posiW=[Number(cod.className.slice(1,2)),Number(cod.className.slice(3,4))]
+                let line1YW =[]
+                let line2YW =[]
+                let line1XW =[]
+                let line2XW =[]
+                for(i=0;i<8;i++){
+                    line1YW[i] = document.querySelector(`.r${posiW[0]+(i+1)}c${posiW[1]}`) 
+                    line2YW[i] = document.querySelector(`.r${posiW[0]-(i+1)}c${posiW[1]}`)
+                    line1XW[i] = document.querySelector(`.r${posiW[0]}c${posiW[1]+(i+1)}`)
+                    line2XW[i] = document.querySelector(`.r${posiW[0]}c${posiW[1]-(i+1)}`)
+                }
+                let linesHori = [line1YW,line2YW,line1XW,line2XW]
+                let linesHori_=[]
+                for(i=0;i<4;i++) {
+                    linesHori_[i] = linesHori[i].filter(conteudo =>{
+                    return conteudo != null
+                })}
+                                    //controlador de opções
+                                    if(document.querySelector('.red') != null){
+                                        document.querySelector('.red').classList.remove('red')
+                                    }
+                                    if(document.querySelector('.orange') != null){
+                                        const a = document.querySelectorAll('.orange').length
+                                        for(i=0;i<a;i++){
+                                            document.querySelectorAll('.orange')[0].classList.remove('orange')
+                                        }
+                                    }
+                                    if(document.querySelector('.blue') != null){
+                                        const a = document.querySelectorAll('.blue').length
+                                        for(i=0;i<a;i++){
+                                            document.querySelectorAll('.blue')[0].classList.remove('blue')
+                                        }
+                                    }
+                //red
+                cod.classList.add('red')  
+
+                for(i=0;i<4;i++){
+                    let auxx=-1
+                    linesHori_[i].map(conteudo =>{
+                        auxx++
                         conteudo.classList.add('blue')
                         if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
                             if(conteudo.classList[2] != cod.classList[2]){
-                                linha1_YW.splice(auxx1WT+1)
+                                linesHori_[i].splice(auxx+1)
                                 conteudo.classList.remove('blue')
                                 //orange
                                 let a = conteudo.className.slice(4)
                                 conteudo.className = conteudo.className.slice(0,4)
                                 conteudo.classList.add('orange')
                                 conteudo.className += a
-                                auxx1WT = -1    
+                                auxx = -1    
                             }
                             else{
-                                linha1_YW.splice(auxx1WT)
+                                linesHori_[i].splice(auxx)
                                 conteudo.classList.remove('blue')
-                                auxx1WT = -1
+                                auxx = -1
                             }
                         }   
-                        return conteudo && auxx1WT   
-                    })    
-                                                            //linha2Y
-                    linha2_YW.map(conteudo =>{
-                        auxx2WT++
-                        conteudo.classList.add('blue')
-                        if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                            if(conteudo.classList[2] != cod.classList[2]){
-                                linha2_YW.splice(auxx2WT+1)
-                                conteudo.classList.remove('blue')
-                                //orange
-                                let a = conteudo.className.slice(4)
-                                conteudo.className = conteudo.className.slice(0,4)
-                                conteudo.classList.add('orange')
-                                conteudo.className += a
-                                auxx2WT = -1    
-                            }
-                            else{
-                                linha2_YW.splice(auxx2WT)
-                                conteudo.classList.remove('blue')
-                                auxx2WT = -1
-                            }
-                        }   
-                        return conteudo && auxx2WT           
+                        return conteudo            
                     })
-                                                            //linha1X     
-                    linha1_XW.map(conteudo =>{
-                        auxx3WT++
-                        conteudo.classList.add('blue')
-                        if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                            if(conteudo.classList[2] != cod.classList[2]){
-                                    linha1_XW.splice(auxx3WT+1)
-                                conteudo.classList.remove('blue')
-                                //orange
-                                let a = conteudo.className.slice(4)
-                                conteudo.className = conteudo.className.slice(0,4)
-                                conteudo.classList.add('orange')
-                                conteudo.className += a
-                                auxx3WT = -1    
-                            }
-                            else{
-                                linha1_XW.splice(auxx3WT)
-                                conteudo.classList.remove('blue')
-                                auxx3WT = -1
-                            }
-                        }   
-                        return conteudo && auxx3WT           
-                    })             
-                                                            //linha2X
-                    linha2_XW.map(conteudo =>{
-                        auxx4WT++
-                        conteudo.classList.add('blue')
-                        if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                            if(conteudo.classList[2] != cod.classList[2]){
-                                    linha2_XW.splice(auxx4WT+1)
-                                conteudo.classList.remove('blue')
-                                //orange
-                                let a = conteudo.className.slice(4)
-                                conteudo.className = conteudo.className.slice(0,4)
-                                conteudo.classList.add('orange')
-                                conteudo.className += a
-                                auxx4WT = -1    
-                            }
-                            else{
-                                linha2_XW.splice(auxx4WT)
-                                conteudo.classList.remove('blue')
-                                auxx4WT = -1
-                            }
-                        }   
-                        return conteudo && auxx4WT           
-                    })
+                }
             break
                                                                                         //BISPO
             case 'bispo':
                 let posiWB=[Number(cod.className.slice(1,2)),Number(cod.className.slice(3,4))]
-                let linha1W =[]
-                let linha2W =[]
-                let linha3W =[]
-                let linha4W =[]
+                let line1W =[]
+                let line2W =[]
+                let line3W =[]
+                let line4W =[]
                 for(i=0;i<=8;i++){
-                    linha1W[i] = document.querySelector(`.r${posiWB[0]+(i+1)}c${posiWB[1]-(i+1)}`)
-                    linha2W[i] = document.querySelector(`.r${posiWB[0]+(i+1)}c${posiWB[1]+(i+1)}`)
-                    linha3W[i] = document.querySelector(`.r${posiWB[0]-(i+1)}c${posiWB[1]-(i+1)}`)
-                    linha4W[i] = document.querySelector(`.r${posiWB[0]-(i+1)}c${posiWB[1]+(i+1)}`)
+                    line1W[i] = document.querySelector(`.r${posiWB[0]+(i+1)}c${posiWB[1]-(i+1)}`)
+                    line2W[i] = document.querySelector(`.r${posiWB[0]+(i+1)}c${posiWB[1]+(i+1)}`)
+                    line3W[i] = document.querySelector(`.r${posiWB[0]-(i+1)}c${posiWB[1]-(i+1)}`)
+                    line4W[i] = document.querySelector(`.r${posiWB[0]-(i+1)}c${posiWB[1]+(i+1)}`)
                 }
+                let linesDiag = [line1W,line2W,line3W,line4W]
+                let linesDiag_=[]
+                for(i=0;i<4;i++) {
+                    linesDiag_[i] = linesDiag[i].filter(conteudo =>{
+                    return conteudo != null
+                })}
                                         //controlador de opções
                                         if(document.querySelector('.red') != null){
                                             document.querySelector('.red').classList.remove('red')
@@ -683,117 +425,34 @@ function aux(cod){
                                             }
                                         }
 
-                let linha1_W = linha1W.filter(conteudo =>{
-                        return conteudo != null
-                })
-                let linha2_W = linha2W.filter(conteudo =>{
-                        return conteudo != null
-                })
-                let linha3_W = linha3W.filter(conteudo =>{
-                        return conteudo != null
-                })
-                let linha4_W = linha4W.filter(conteudo =>{
-                        return conteudo != null
-                })
                 //red
                 cod.classList.add('red')  
-                let auxx1B=-1
-                let auxx2B=-1
-                let auxx3B=-1
-                let auxx4B=-1
-
-                                                        //linha1
-                linha1_W.map(conteudo =>{
-                    auxx1B++
-                    conteudo.classList.add('blue')
-                    if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                        if(conteudo.classList[2] != cod.classList[2]){
-                            linha1_W.splice(auxx1B+1)
-                            conteudo.classList.remove('blue')
-                            //orange
-                            let a = conteudo.className.slice(4)
-                            conteudo.className = conteudo.className.slice(0,4)
-                            conteudo.classList.add('orange')
-                            conteudo.className += a
-                            auxx1B = -1    
-                        }
-                        else{
-                            linha1_W.splice(auxx1B)
-                            conteudo.classList.remove('blue')
-                            auxx1B = -1
-                        }
-                    }   
-                    return conteudo && auxx1B           
-                })
-                                                        //linha2
-                linha2_W.map(conteudo =>{
-                    auxx2B++
-                    conteudo.classList.add('blue')
-                    if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                        if(conteudo.classList[2] != cod.classList[2]){
-                            linha2_W.splice(auxx2B+1)
-                            conteudo.classList.remove('blue')
-                            //orange
-                            let a = conteudo.className.slice(4)
-                            conteudo.className = conteudo.className.slice(0,4)
-                            conteudo.classList.add('orange')
-                            conteudo.className += a
-                            auxx2B = -1    
-                        }
-                        else{
-                            linha2_W.splice(auxx2B)
-                            conteudo.classList.remove('blue')
-                            auxx2B = -1
-                        }
-                    }   
-                    return conteudo && auxx2B           
-                })
-                                                        //linha3          
-                linha3_W.map(conteudo =>{
-                    auxx3B++
-                    conteudo.classList.add('blue')
-                    if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                        if(conteudo.classList[2] != cod.classList[2]){
-                            linha3_W.splice(auxx3B+1)
-                            conteudo.classList.remove('blue')
-                            //orange
-                            let a = conteudo.className.slice(4)
-                            conteudo.className = conteudo.className.slice(0,4)
-                            conteudo.classList.add('orange')
-                            conteudo.className += a
-                            auxx3B = -1    
-                        }
-                        else{
-                            linha3_W.splice(auxx3B)
-                            conteudo.classList.remove('blue')
-                            auxx3B = -1
-                        }
-                    }   
-                    return conteudo && auxx3B         
-                })             
-                                                        //linha4
-                linha4_W.map(conteudo =>{
-                    auxx4B++
-                    conteudo.classList.add('blue')
-                    if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
-                        if(conteudo.classList[2] != cod.classList[2]){
-                            linha4_W.splice(auxx4B+1)
-                            conteudo.classList.remove('blue')
-                            //orange
-                            let a = conteudo.className.slice(4)
-                            conteudo.className = conteudo.className.slice(0,4)
-                            conteudo.classList.add('orange')
-                            conteudo.className += a
-                            auxx4B = -1    
-                        }
-                        else{
-                            linha4_W.splice(auxx4B)
-                            conteudo.classList.remove('blue')
-                            auxx4B = -1
-                        }
-                    }   
-                    return conteudo && auxx4B           
-                })
+                
+                for(i=0;i<4;i++){
+                    let auxx=-1
+                    linesDiag_[i].map(conteudo =>{
+                        auxx++
+                        conteudo.classList.add('blue')
+                        if(conteudo.classList[2] == cod.classList[2] || conteudo.classList[2] != cod.classList[2] && conteudo.classList[2] != undefined){
+                            if(conteudo.classList[2] != cod.classList[2]){
+                                linesDiag_[i].splice(auxx+1)
+                                conteudo.classList.remove('blue')
+                                //orange
+                                let a = conteudo.className.slice(4)
+                                conteudo.className = conteudo.className.slice(0,4)
+                                conteudo.classList.add('orange')
+                                conteudo.className += a
+                                auxx = -1    
+                            }
+                            else{
+                                linesDiag_[i].splice(auxx)
+                                conteudo.classList.remove('blue')
+                                auxx = -1
+                            }
+                        }   
+                        return conteudo            
+                    })
+                }
             break
                                                                                         //CAVALO
             case 'cavalo':
@@ -947,43 +606,38 @@ function aux(cod){
             return conteudo.classList[2] != cod.classList[2]    
         })
     let posi=[Number(auu[0].className.slice(1,2)),Number(auu[0].className.slice(3,4))]
-    let linha1Hori =[]
-    let linha2Hori =[]
-    let linha3Hori =[]
-    let linha4Hori =[]
-    let linha1Diag =[]
-    let linha2Diag =[]
-    let linha3Diag =[]
-    let linha4Diag =[]
+    let line1Hori =[]
+    let line2Hori =[]
+    let line3Hori =[]
+    let line4Hori =[]
+    let line1Diag =[]
+    let line2Diag =[]
+    let line3Diag =[]
+    let line4Diag =[]
     for(i=0;i<=8;i++){
-        linha1Diag[i] = document.querySelector(`.r${posi[0]+(i+1)}c${posi[1]-(i+1)}`)
-        linha2Diag[i] = document.querySelector(`.r${posi[0]+(i+1)}c${posi[1]+(i+1)}`)
-        linha3Diag[i] = document.querySelector(`.r${posi[0]-(i+1)}c${posi[1]-(i+1)}`)
-        linha4Diag[i] = document.querySelector(`.r${posi[0]-(i+1)}c${posi[1]+(i+1)}`)
-        linha1Hori[i] = document.querySelector(`.r${posi[0]+(i+1)}c${posi[1]}`) 
-        linha2Hori[i] = document.querySelector(`.r${posi[0]-(i+1)}c${posi[1]}`)
-        linha3Hori[i] = document.querySelector(`.r${posi[0]}c${posi[1]+(i+1)}`)
-        linha4Hori[i] = document.querySelector(`.r${posi[0]}c${posi[1]-(i+1)}`)
+        line1Diag[i] = document.querySelector(`.r${posi[0]+(i+1)}c${posi[1]-(i+1)}`)
+        line2Diag[i] = document.querySelector(`.r${posi[0]+(i+1)}c${posi[1]+(i+1)}`)
+        line3Diag[i] = document.querySelector(`.r${posi[0]-(i+1)}c${posi[1]-(i+1)}`)
+        line4Diag[i] = document.querySelector(`.r${posi[0]-(i+1)}c${posi[1]+(i+1)}`)
+        line1Hori[i] = document.querySelector(`.r${posi[0]+(i+1)}c${posi[1]}`) 
+        line2Hori[i] = document.querySelector(`.r${posi[0]}c${posi[1]+(i+1)}`)
+        line3Hori[i] = document.querySelector(`.r${posi[0]-(i+1)}c${posi[1]}`)
+        line4Hori[i] = document.querySelector(`.r${posi[0]}c${posi[1]-(i+1)}`)
     }
-    let linha1_Diag= linha1Diag.filter(conteudo =>{
+    let lines =line1Hori.concat(line2Hori,line3Hori,line4Hori,line1Diag,line2Diag,line3Diag,line4Diag)
+
+    let lines_= lines.filter(conteudo =>{
         return conteudo != null                     })
-    let linha2_Diag= linha2Diag.filter(conteudo =>{
-        return conteudo != null                     })
-    let linha3_Diag= linha3Diag.filter(conteudo =>{
-        return conteudo != null                     })
-    let linha4_Diag= linha4Diag.filter(conteudo =>{
-        return conteudo != null                     })
-    let linha1_Hori= linha1Hori.filter(conteudo =>{
-        return conteudo != null                     })
-    let linha2_Hori= linha2Hori.filter(conteudo =>{
-        return conteudo != null                     })
-    let linha3_Hori= linha3Hori.filter(conteudo =>{
-        return conteudo != null                     })
-    let linha4_Hori= linha4Hori.filter(conteudo =>{
-        return conteudo != null                     })
+
+
+
+
+
+
+
+
+
 }
-
-
 
 
 
