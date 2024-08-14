@@ -628,15 +628,6 @@ function aux(cod){
 
     let lines_= lines.filter(conteudo =>{
         return conteudo != null                     })
-
-
-
-
-
-
-
-
-
 }
 
 
@@ -763,6 +754,4 @@ for(i=1;i<=8;i++){
         case 8:document.querySelector(`.r1c${i}`).innerHTML +=`<p class='letrWhite'>H</p>` 
         break
     }
-
-
 }
